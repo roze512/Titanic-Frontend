@@ -3,7 +3,7 @@
 <head>
     <title>Titanic AI Dashboard</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -127,49 +127,30 @@
 
 
 
-        {% if prediction %}
+      <div class="result" id="resultBox" style="display:none;">
 
-        <div class="result {% if prediction == 'Survived ✅' %}success{% else %}danger{% endif %}">
+    <div class="result-icon" id="resultIcon">
+        🟢
+    </div>
 
+    <h2>Prediction Result</h2>
 
-            <div class="result-icon">
+    <h1 id="predictionText"></h1>
 
-                {% if prediction == 'Survived ✅' %}
-                    🟢
-                {% else %}
-                    🔴
-                {% endif %}
+    <p>
+        <strong>Confidence:</strong>
+        <span id="confidenceText"></span>%
+    </p>
 
-            </div>
+    <div class="progress">
 
-
-
-            <h2>Prediction Result</h2>
-
-
-            <h1>{{ prediction }}</h1>
-
-
-            <p>
-                <strong>Confidence:</strong> {{ confidence }}%
-            </p>
-
-
-
-            <div class="progress">
-
-                <div class="progress-bar"
-                style="width: {{ confidence }}%;">
-                    {{ confidence }}%
-                </div>
-
-            </div>
-
-
+        <div class="progress-bar" id="confidenceBar">
+            0%
         </div>
 
+    </div>
 
-        {% endif %}
+</div>
 
 
 
@@ -195,7 +176,7 @@
 </div>
 
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="script.js"></script>
 
 
 </body>
