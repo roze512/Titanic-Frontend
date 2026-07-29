@@ -1,141 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+    <title>Titanic AI Dashboard</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Titanic AI Prediction</title>
-
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 
 <body>
 
-
 <div class="container">
 
-
-    <section class="hero">
+    <div class="hero">
 
         <h1>🚢 Titanic Survival Prediction</h1>
 
-        <p>
+        <p class="subtitle">
             Artificial Intelligence Dashboard using Decision Tree Algorithm
         </p>
 
-
-        <div class="badges">
-
+        <div class="hero-badge">
             <span>🤖 Machine Learning</span>
             <span>🌳 Decision Tree</span>
             <span>📊 Accuracy 79.89%</span>
-
         </div>
 
-
-    </section>
-
+    </div>
 
 
-    <section class="cards">
-
+    <div class="cards">
 
         <div class="card">
-            <h2>📊 Accuracy</h2>
+            <div class="icon">📊</div>
+            <h2>Model Accuracy</h2>
             <h3>79.89%</h3>
+            <p>Decision Tree Performance</p>
         </div>
 
 
         <div class="card">
-            <h2>🌳 Algorithm</h2>
+            <div class="icon">🌳</div>
+            <h2>Algorithm</h2>
             <h3>Decision Tree</h3>
+            <p>Classification Model</p>
         </div>
 
 
         <div class="card">
-            <h2>👥 Dataset</h2>
+            <div class="icon">📂</div>
+            <h2>Dataset</h2>
             <h3>891</h3>
+            <p>Titanic Passengers</p>
         </div>
 
 
-    </section>
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h2>AI Status</h2>
+            <h3>Online</h3>
+            <p>Ready for Prediction</p>
+        </div>
+
+    </div>
 
 
 
-
-    <section class="prediction">
-
+    <div class="prediction-box">
 
         <h2>Passenger Prediction</h2>
 
 
-        <input id="pclass" type="number" placeholder="Passenger Class (1-3)">
+        <form method="POST">
 
 
-        <select id="sex">
-
-            <option value="0">Male</option>
-            <option value="1">Female</option>
-
-        </select>
+            <input type="number" name="pclass"
+            placeholder="Passenger Class (1, 2, or 3)" required>
 
 
+            <label>Gender</label>
 
-        <input id="age" type="number" placeholder="Age">
-
-
-        <input id="sibsp" type="number" placeholder="Siblings/Spouse">
-
-
-        <input id="parch" type="number" placeholder="Parents/Children">
-
-
-        <input id="fare" type="number" placeholder="Fare">
-
-
-        <select id="embarked">
-
-            <option value="0">Southampton</option>
-            <option value="1">Cherbourg</option>
-            <option value="2">Queenstown</option>
-
-        </select>
+            <select name="sex" required>
+                <option value="">Select Gender</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
 
 
 
-        <button onclick="predict()">
-            Predict Survival
-        </button>
+            <input type="number" name="age"
+            placeholder="Age (Example: 22)" required>
 
 
 
-        <div id="result"></div>
-
-
-    </section>
+            <input type="number" name="sibsp"
+            placeholder="Siblings/Spouse Number (Example: 1)" required>
 
 
 
-<footer>
+            <input type="number" name="parch"
+            placeholder="Parents/Children Number (Example: 0)" required>
 
-    Developed by Rizwan 🚀
 
-</footer>
+
+            <input type="number" step="any" name="fare"
+            placeholder="Ticket Fare (Example: 7.25)" required>
+
+
+
+            <label>Embarked</label>
+
+            <select name="embarked" required>
+                <option value="">Select Port</option>
+                <option value="0">Southampton (S)</option>
+                <option value="1">Cherbourg (C)</option>
+                <option value="2">Queenstown (Q)</option>
+            </select>
+
+
+
+            <button type="submit">
+                Predict Survival
+            </button>
+
+
+        </form>
+
+
+
+
+        {% if prediction %}
+
+        <div class="result {% if prediction == 'Survived ✅' %}success{% else %}danger{% endif %}">
+
+
+            <div class="result-icon">
+
+                {% if prediction == 'Survived ✅' %}
+                    🟢
+                {% else %}
+                    🔴
+                {% endif %}
+
+            </div>
+
+
+
+            <h2>Prediction Result</h2>
+
+
+            <h1>{{ prediction }}</h1>
+
+
+            <p>
+                <strong>Confidence:</strong> {{ confidence }}%
+            </p>
+
+
+
+            <div class="progress">
+
+                <div class="progress-bar"
+                style="width: {{ confidence }}%;">
+                    {{ confidence }}%
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        {% endif %}
+
+
+
+    </div>
+
+
+
+
+    <footer>
+
+        <h3>👨‍💻 Muhammad Rizwan Safdar</h3>
+
+        <p>COMSATS University Vehari</p>
+
+        <p>Machine Learning - Decision Tree Project</p>
+
+        <p>© 2026 All Rights Reserved</p>
+
+    </footer>
 
 
 
 </div>
 
 
-
-<script src="script.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 
 </body>
-
 </html>
