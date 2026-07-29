@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Titanic AI Prediction</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <section class="hero">
+
+        <h1>🚢 Titanic Survival Prediction</h1>
+
+        <p>
+            Artificial Intelligence Dashboard using Decision Tree Algorithm
+        </p>
+
+
+        <div class="badges">
+
+            <span>🤖 Machine Learning</span>
+            <span>🌳 Decision Tree</span>
+            <span>📊 Accuracy 79.89%</span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <section class="cards">
+
+
+        <div class="card">
+            <h2>📊 Accuracy</h2>
+            <h3>79.89%</h3>
+        </div>
+
+
+        <div class="card">
+            <h2>🌳 Algorithm</h2>
+            <h3>Decision Tree</h3>
+        </div>
+
+
+        <div class="card">
+            <h2>👥 Dataset</h2>
+            <h3>891</h3>
+        </div>
+
+
+    </section>
+
+
+
+
+    <section class="prediction">
+
+
+        <h2>Passenger Prediction</h2>
+
+
+        <input id="pclass" type="number" placeholder="Passenger Class (1-3)">
+
+
+        <select id="sex">
+
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+
+        </select>
+
+
+
+        <input id="age" type="number" placeholder="Age">
+
+
+        <input id="sibsp" type="number" placeholder="Siblings/Spouse">
+
+
+        <input id="parch" type="number" placeholder="Parents/Children">
+
+
+        <input id="fare" type="number" placeholder="Fare">
+
+
+        <select id="embarked">
+
+            <option value="0">Southampton</option>
+            <option value="1">Cherbourg</option>
+            <option value="2">Queenstown</option>
+
+        </select>
+
+
+
+        <button onclick="predict()">
+            Predict Survival
+        </button>
+
+
+
+        <div id="result"></div>
+
+
+    </section>
+
+
+
+<footer>
+
+    Developed by Rizwan 🚀
+
+</footer>
+
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
