@@ -51,22 +51,30 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
 
 
-            document.getElementById("resultBox").style.display="block";
+           document.getElementById("resultBox").style.display = "block";
 
-            document.getElementById("predictionText").innerHTML =
-            result.prediction;
+document.getElementById("predictionText").innerHTML = result.prediction;
 
+document.getElementById("confidenceText").innerHTML = result.confidence;
 
-            document.getElementById("confidenceText").innerHTML =
-            result.confidence;
+document.getElementById("confidenceBar").style.width =
+result.confidence + "%";
 
+document.getElementById("confidenceBar").innerHTML =
+result.confidence + "%";
 
-            document.getElementById("confidenceBar").style.width =
-            result.confidence+"%";
+// Change icon and color
+if (result.prediction === "Survived ✅") {
 
+    document.getElementById("resultIcon").innerHTML = "🟢";
+    document.getElementById("resultBox").className = "result success";
 
-            document.getElementById("confidenceBar").innerHTML =
-            result.confidence+"%";
+} else {
+
+    document.getElementById("resultIcon").innerHTML = "🔴";
+    document.getElementById("resultBox").className = "result danger";
+
+}
 
 
         }
