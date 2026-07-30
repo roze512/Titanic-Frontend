@@ -438,3 +438,22 @@ footer p{
     }
 
 }
+/* ===== BUTTON GROUP ===== */
+
+.button-group{
+    display:flex;
+    gap:15px;
+    margin-top:15px;
+}
+
+.button-group button{
+    flex:1;
+}
+
+#resetBtn{
+    background:#ff4d4d;
+}
+
+#resetBtn:hover{
+    background:#d63031;
+}

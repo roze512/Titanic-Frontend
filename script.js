@@ -92,5 +92,26 @@ if (result.prediction === "Survived ✅") {
         button.disabled=false;
 
     });
+...
+
+button.innerHTML="Predict Survival";
+button.disabled=false;
+
+});
+
+// Reset Button
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+
+    form.reset();
+
+    document.getElementById("resultBox").style.display = "none";
+
+    document.getElementById("confidenceBar").style.width = "0%";
+
+    document.getElementById("confidenceBar").innerHTML = "0%";
+
+});
+
 
 });
